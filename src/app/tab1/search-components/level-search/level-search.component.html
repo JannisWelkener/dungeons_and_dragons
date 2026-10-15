@@ -1,0 +1,20 @@
+<ion-item>
+  <ion-select
+      interface="action-sheet"
+      placeholder="Klasse..."
+      (ionChange)="this.onSelectChanged($event)"
+      >
+    <ion-select-option
+      *ngFor="let option of this.classes()" [value]="option.index"
+      >{{ option.title }}</ion-select-option>
+  </ion-select>
+</ion-item>
+
+
+<app-search-result-list
+  [loading]="this.loading"
+  [error]="this.error"
+  [resource]="this.resource"
+  [list]="this.list"
+  (entryClicked)="this.onEntryClicked($event)">
+</app-search-result-list>

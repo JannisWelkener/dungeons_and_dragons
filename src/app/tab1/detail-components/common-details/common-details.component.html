@@ -1,0 +1,22 @@
+<div *ngIf="this.loading" style="text-align:center">Loading...</div>
+<div *ngIf="this.error" style="text-align:center">Error :(</div>
+<div *ngIf="this.details">
+  <div *ngFor="let detail of details">
+    <ion-item
+        *ngIf="detail.value != null || detail.values != null && detail.values.length != 0"
+        [button]="detail.ref!=undefined" [detail]="detail.ref!=undefined"
+        (click)="onReferenceClick(detail.ref)">
+      <ion-label>
+        <h3>{{ detail.label }}</h3>
+        <p *ngIf="!detail.special && detail.value != null" class="ion-text-wrap">{{ detail.value }}</p>
+        <ion-item
+            *ngFor="let row of detail.values || []" lines="none"
+            [button]="row.ref!=undefined" [detail]="row.ref!=undefined"
+            (click)="onReferenceClick(row.ref)">
+          <p class="ion-text-wrap" style="color:var(--ion-color-step-600,#666666)" >{{ row.value.toString() }}</p>
+        </ion-item>
+      </ion-label>
+      <img *ngIf="detail.special=='image'" src="https://www.dnd5eapi.co{{detail.value}}"/>
+    </ion-item>
+  </div>
+</div>

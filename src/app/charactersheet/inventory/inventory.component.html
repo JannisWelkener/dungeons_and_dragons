@@ -1,0 +1,12 @@
+<ion-content style="height: 350px">
+  <ion-item>
+    <ion-button style="width: 50%" (click)="onAddInventoryItemClicked('equipments')">+ Equipment</ion-button>
+    <ion-button style="width: 50%" (click)="onAddInventoryItemClicked('magicItems')">+ Magic Item</ion-button>
+  </ion-item>
+  <ion-item *ngFor="let item of this.display" [button]="item.ref!=undefined" (click)="onItemClicked(item.ref)">
+    <ion-label>{{ item.label }}</ion-label>
+    <ion-button *ngIf="item.buttons['del']" (click)="onItemTrashClicked(item.identifier)"><ion-icon name="trash" ></ion-icon></ion-button>
+    <ion-button *ngIf="item.buttons['-']"   (click)="onItemMinusClicked(item.identifier)"><ion-icon name="remove"></ion-icon></ion-button>
+    <ion-button *ngIf="item.buttons['+']"   (click)="onItemPlusClicked(item.identifier)" ><ion-icon name="add"   ></ion-icon></ion-button>
+  </ion-item>
+</ion-content>

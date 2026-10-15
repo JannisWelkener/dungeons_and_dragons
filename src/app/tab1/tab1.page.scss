@@ -1,0 +1,18 @@
+.center_button{
+    text-align: center;
+    margin: 1em;
+}
+
+ion-content{
+    text-align: center;
+    --background: var(--ion-background-color) url(/assets/icon/dungeons-and-dragons_background_2.png) no-repeat center;
+}
+
+#reset_all_modalbtn{
+    margin: 1em;
+}
+
+.max_size{
+    width: auto;
+    height: 100px;
+}

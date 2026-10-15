@@ -1,0 +1,348 @@
+<ion-header>
+  <ion-toolbar>
+   <!-- <ion-title>{{characters.selected_character?.name}}</ion-title>-->
+
+    <p slot="start" class="toolbar_end">{{characters.selected_character?.name}}</p>
+
+    <p slot="end" class="toolbar_end">{{characters.selected_character?.race}}</p>
+    <p slot="end" class="toolbar_end">{{characters.selected_character!.class_type.title}}</p>
+    <p slot="end" class="toolbar_end">Level {{calc_level()}}</p>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="attribute_box">
+    <ion-card class="attribute_visual">
+      <ion-card-header>
+        <ion-card-subtitle>Strength</ion-card-subtitle>
+          <ion-card-title class="attibute_number">
+            <ion-input class="attr_num" placeholder="?" value="{{characters.selected_character!.strength.attr}}" (ionBlur)="onSelectChangedAttr($event,0)"></ion-input>
+          </ion-card-title>
+      </ion-card-header>
+      <ion-card-content class="attribute_modifier">
+        <ion-input class="sub_attr_num" placeholder="+?" value="{{characters.selected_character!.strength.sub_attr}}" (ionBlur)="onSelectChangedSubAttr($event,0)"></ion-input>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="attribute_visual">
+      <ion-card-header>
+        <ion-card-subtitle>Dexterity</ion-card-subtitle>
+        <ion-card-title class="attibute_number">
+          <ion-input class="attr_num" placeholder="?" value="{{characters.selected_character!.dexterity.attr}}" (ionBlur)="onSelectChangedAttr($event,1)"></ion-input>
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content class="attribute_modifier">
+        <ion-input class="sub_attr_num" placeholder="+?" value="{{characters.selected_character!.dexterity.sub_attr}}" (ionBlur)="onSelectChangedSubAttr($event,1)"></ion-input>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="attribute_visual">
+      <ion-card-header>
+        <ion-card-subtitle>Constitution</ion-card-subtitle>
+        <ion-card-title class="attibute_number">
+          <ion-input class="attr_num" placeholder="?" value="{{characters.selected_character!.constitution.attr}}" (ionBlur)="onSelectChangedAttr($event,2)"></ion-input>
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content class="attribute_modifier">
+        <ion-input class="sub_attr_num" placeholder="+?" value="{{characters.selected_character!.constitution.sub_attr}}" (ionBlur)="onSelectChangedSubAttr($event,2)"></ion-input>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="attribute_visual">
+      <ion-card-header>
+        <ion-card-subtitle>Intelligence</ion-card-subtitle>
+        <ion-card-title class="attibute_number">
+          <ion-input class="attr_num" placeholder="?" value="{{characters.selected_character!.intelligence.attr}}" (ionBlur)="onSelectChangedAttr($event,3)"></ion-input>
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content class="attribute_modifier">
+        <ion-input class="sub_attr_num" placeholder="+?" value="{{characters.selected_character!.intelligence.sub_attr}}" (ionBlur)="onSelectChangedSubAttr($event,3)"></ion-input>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="attribute_visual">
+      <ion-card-header>
+        <ion-card-subtitle>Wisdom</ion-card-subtitle>
+        <ion-card-title class="attibute_number">
+          <ion-input class="attr_num" placeholder="?" value="{{characters.selected_character!.wisdom.attr}}" (ionBlur)="onSelectChangedAttr($event,4)"></ion-input>
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content class="attribute_modifier">
+        <ion-input class="sub_attr_num" placeholder="+?" value="{{characters.selected_character!.wisdom.sub_attr}}" (ionBlur)="onSelectChangedSubAttr($event,4)"></ion-input>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="attribute_visual">
+      <ion-card-header>
+        <ion-card-subtitle>Charisma</ion-card-subtitle>
+        <ion-card-title class="attibute_number">
+          <ion-input class="attr_num" placeholder="?" value="{{characters.selected_character!.charisma.attr}}" (ionBlur)="onSelectChangedAttr($event,5)"></ion-input>
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content class="attribute_modifier">
+        <ion-input class="sub_attr_num" placeholder="+?" value="{{characters.selected_character!.charisma.sub_attr}}" (ionBlur)="onSelectChangedSubAttr($event,5)"></ion-input>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div>
+    <table class="lvl_bar">
+      <tr>
+        <th>{{calc_level()}}</th>
+        <th class="lvl_bar_in_table">
+          <ion-progress-bar value={{xp_calc()}} class="xp_bar"></ion-progress-bar>
+        </th>
+        <th>{{calc_level()+1}}</th>
+      </tr>
+    </table>
+
+    <ion-item class="skill_element">
+      <ion-label position="floating">XP</ion-label>
+      <ion-input placeholder="Experience" value={{characters.selected_character?.xp}} (ionBlur)="changeXP($event)"></ion-input>
+    </ion-item>
+  </div>
+
+  <div class="flexbox">
+    <ion-card class="character_card">
+
+      <ion-item class="skill_element">
+        <ion-label position="floating">Max-HP</ion-label>                           <!-- On Exit -->
+        <ion-input placeholder="Max-HP" value={{characters.selected_character?.maxHP}} (ionBlur)="changeMaxHP($event)"></ion-input>
+      </ion-item>
+
+      <ion-item class="skill_element">
+        <ion-label position="floating">HP</ion-label>
+        <ion-input placeholder="HP" value={{characters.selected_character?.currentHP}} (ionBlur)="changeHP($event)"></ion-input>
+      </ion-item>
+
+      <ion-item class="skill_element">
+        <ion-label position="floating">Temp-HP</ion-label>
+        <ion-input placeholder="HP" value={{characters.selected_character?.tempHP}} (ionBlur)="changeTempHP($event)"></ion-input>
+      </ion-item>
+
+    </ion-card>
+
+
+
+    <ion-card class="character_card">
+      <ion-item class="skill_element">
+        <ion-label position="floating">Armor Class</ion-label>
+        <ion-input placeholder="Armor Class" value={{characters.selected_character?.armor_class}} (ionBlur)="changeArmorClass($event)"></ion-input>
+      </ion-item>
+
+      <ion-item class="skill_element">
+        <ion-label position="floating">Initiative</ion-label>
+        <ion-input placeholder="Initiative" value={{characters.selected_character?.initiative}} (ionBlur)="changeInitiative($event)"></ion-input>
+      </ion-item>
+
+      <ion-item class="skill_element">
+        <ion-label position="floating">Speed</ion-label>
+        <ion-input placeholder="Speed" value={{characters.selected_character?.speed}} (ionBlur)="changeSpeed($event)"></ion-input>
+      </ion-item>
+    </ion-card>
+
+    <ion-card class="character_card">
+      <ion-item class="skill_element">
+        <ion-label position="floating">Passive Wisdom (Perception)</ion-label>
+        <ion-input placeholder="Passive Wisdom" value={{characters.selected_character?.passiv_wisdom}} (ionBlur)="changePassiveWisdom($event)"></ion-input>
+      </ion-item>
+
+      <ion-item class="skill_element">
+        <ion-label position="floating">Inspiration</ion-label>
+        <ion-input placeholder="Inspiration" value={{characters.selected_character?.inspiration}} (ionBlur)="changeInspiration($event)"></ion-input>
+      </ion-item>
+
+      <ion-item class="skill_element">
+        <ion-label position="floating">Proficiency Bonus</ion-label>
+        <ion-input placeholder="Proficiency Bonus" value={{characters.selected_character?.proficiency_bonus}} (ionBlur)="changeProficiencyBonus($event)"></ion-input>
+      </ion-item>
+    </ion-card>
+
+  </div>
+
+
+
+  <div class="segment_control">
+    <ion-segment value="personality" [(ngModel)]="selected_segment" [scrollable]="true" class="segm">
+      <ion-segment-button value="background">
+        <ion-label>Background</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="levels">
+        <ion-label>Levels</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="inventory">
+        <ion-label>Inventory</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="skills">
+        <ion-label>Skills</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="languages">
+        <ion-label>Languages</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="savings">
+        <ion-label>Savings</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <ng-container [ngSwitch]="selected_segment">
+  <div *ngSwitchCase="'background'">
+
+      <ion-list class="alignment_item">
+        <h3>Background</h3>
+        <ion-item class="alignment_item">
+          <!--<p>Alignment:&nbsp;</p>-->
+            <ion-select
+              interface="popover"
+              placeholder="Select Alignment"
+              (ionChange)="this.onSelectChangedAlignment($event)"
+              selectedText="Alignment:&nbsp; {{characters.selected_character!.alignment}}"
+              class="selectAlignment"
+              >
+              <ion-select-option *ngFor="let alignment of this.allAlignments" [value]="alignment.title">{{ alignment.title }}</ion-select-option>
+            </ion-select>
+        </ion-item>
+      </ion-list>
+
+      <ion-list class="personality">
+        <ion-label>Personality</ion-label>
+          <ion-item class="personality_item">
+            <ion-textarea placeholder="Type your characters personality here" [autoGrow]="true" value="{{characters.selected_character!.personality}}" (ionBlur)="this.onSelectChangedPersonality($event)"></ion-textarea>
+          </ion-item>
+
+          <ion-label>Ideals</ion-label>
+          <ion-item class="personality_item">
+            <ion-textarea placeholder="Type your characters ideals here" [autoGrow]="true" value="{{characters.selected_character!.ideals}}" (ionBlur)="this.onSelectChangedIdeals($event)"></ion-textarea>
+          </ion-item>
+
+          <ion-label>Bonds</ion-label>
+          <ion-item class="personality_item">
+            <ion-textarea placeholder="Type your characters bonds here" [autoGrow]="true" value="{{characters.selected_character!.bonds}}" (ionBlur)="this.onSelectChangedBonds($event)"></ion-textarea>
+          </ion-item>
+
+          <ion-label>Flaws</ion-label>
+          <ion-item class="personality_item">
+            <ion-textarea placeholder="Type your characters flaws here" [autoGrow]="true" value="{{characters.selected_character!.flaws}}" (ionBlur)="this.onSelectChangedFlaws($event)"></ion-textarea>
+          </ion-item>
+      </ion-list>
+
+  </div>
+
+
+
+  <div *ngSwitchCase="'levels'">
+    <ion-list class="personality">
+      <h3>Unlocked Levels</h3>
+      <div *ngFor="let lvl of unlockedLevels">
+        <ion-item class="personality_item" *ngIf="lvl.level_num <= characters.selected_character!.level">
+          <ion-label><strong>{{lvl.title}}</strong></ion-label>
+          <p>{{lvl.description}}</p>
+        </ion-item>
+      </div>
+    </ion-list>
+  </div>
+
+  <app-inventory *ngSwitchCase="'inventory'" [items]="getInventory()" (event)="onInventoryEvent($event)" #inventory></app-inventory>
+
+  <div *ngSwitchCase="'skills'">
+    <div>
+      <ion-list>
+        <h3>Skills</h3>
+        <div *ngFor="let skill of allSkills; index as i">
+          <div class="skill_box">
+
+            <ion-item class="skill_element">
+              <ion-checkbox slot="start" checked={{characters.selected_character!.skill_points_checked[i]}} (ionChange)="this.onSelectChangedSkillPointCheckmark($event,i)"></ion-checkbox>
+              <ion-label position="floating">{{skill.name}} ({{skill.ability_score.name}})</ion-label>
+              <ion-input placeholder="Skill Points" value={{characters.selected_character!.skill_points[i]}} (ionChange)="this.onSelectChangedSkillPoint($event,i)"></ion-input>
+            </ion-item>
+
+          </div>
+        </div>
+      </ion-list>
+    </div>
+  </div>
+
+  <div *ngSwitchCase="'languages'">
+      <ion-list>
+        <h3>Languages</h3>
+        <div *ngFor="let lang of allLanguages; index as i">
+          <ion-item class="skill_element">
+            <ion-checkbox slot="start" checked={{characters.selected_character!.languages[i]}} (ionChange)="this.onSelectChangedLanguage($event,i)"></ion-checkbox>
+            <p>{{lang.title}}</p>
+          </ion-item>
+        </div>
+      </ion-list>
+  </div>
+
+  <div *ngSwitchCase="'savings'">
+    <ion-list>
+      <h3>Death Saves</h3>
+      <ion-item class="skill_element">
+        <ion-label>Successes</ion-label>
+        <ion-checkbox slot="start" checked="{{characters.selected_character!.death_saves_success[0]}}" (ionChange)="this.onSelectChangedDSS($event,0)"></ion-checkbox>
+        <ion-checkbox slot="start" checked="{{characters.selected_character!.death_saves_success[1]}}" (ionChange)="this.onSelectChangedDSS($event,1)"></ion-checkbox>
+        <ion-checkbox slot="start" checked="{{characters.selected_character!.death_saves_success[2]}}" (ionChange)="this.onSelectChangedDSS($event,2)"></ion-checkbox>
+      </ion-item>
+      <ion-item class="skill_element">
+        <ion-label>Failures</ion-label>
+        <ion-checkbox slot="start" checked="{{characters.selected_character!.death_saves_failure[0]}}" (ionChange)="this.onSelectChangedDSF($event,0)"></ion-checkbox>
+        <ion-checkbox slot="start" checked="{{characters.selected_character!.death_saves_failure[1]}}" (ionChange)="this.onSelectChangedDSF($event,1)"></ion-checkbox>
+        <ion-checkbox slot="start" checked="{{characters.selected_character!.death_saves_failure[2]}}" (ionChange)="this.onSelectChangedDSF($event,2)"></ion-checkbox>
+      </ion-item>
+
+
+        <h3>Saving Throws</h3>
+        <ion-item class="skill_element">
+          <ion-label position="floating">Strength</ion-label>
+          <ion-checkbox slot="start" checked={{characters.selected_character!.saving_throws_checked[0]}} (ionChange)="this.onSelectChangedSTC($event,0)"></ion-checkbox>
+          <ion-input placeholder="?" value={{characters.selected_character!.saving_throws[0]}} (ionBlur)="onSelectChangedSTN($event,0)"></ion-input>
+        </ion-item>
+
+        <ion-item class="skill_element">
+          <ion-label position="floating">Dexterity</ion-label>
+          <ion-checkbox slot="start" checked={{characters.selected_character!.saving_throws_checked[1]}} (ionChange)="this.onSelectChangedSTC($event,1)"></ion-checkbox>
+          <ion-input placeholder="?" value={{characters.selected_character!.saving_throws[1]}} (ionBlur)="onSelectChangedSTN($event,1)"></ion-input>
+        </ion-item>
+
+        <ion-item class="skill_element">
+          <ion-label position="floating">Constitution</ion-label>
+          <ion-checkbox slot="start" checked={{characters.selected_character!.saving_throws_checked[2]}} (ionChange)="this.onSelectChangedSTC($event,2)"></ion-checkbox>
+          <ion-input placeholder="?" value={{characters.selected_character!.saving_throws[2]}} (ionBlur)="onSelectChangedSTN($event,2)"></ion-input>
+        </ion-item>
+
+        <ion-item class="skill_element">
+          <ion-label position="floating">Intelligence</ion-label>
+          <ion-checkbox slot="start" checked={{characters.selected_character!.saving_throws_checked[3]}} (ionChange)="this.onSelectChangedSTC($event,3)"></ion-checkbox>
+          <ion-input placeholder="?" value={{characters.selected_character!.saving_throws[3]}} (ionBlur)="onSelectChangedSTN($event,3)"></ion-input>
+        </ion-item>
+
+        <ion-item class="skill_element">
+          <ion-label position="floating">Wisdom</ion-label>
+          <ion-checkbox slot="start" checked={{characters.selected_character!.saving_throws_checked[4]}} (ionChange)="this.onSelectChangedSTC($event,4)"></ion-checkbox>
+          <ion-input placeholder="?" value={{characters.selected_character!.saving_throws[4]}} (ionBlur)="onSelectChangedSTN($event,4)"></ion-input>
+        </ion-item>
+
+        <ion-item class="skill_element">
+          <ion-label position="floating">Charisma</ion-label>
+          <ion-checkbox slot="start" checked={{characters.selected_character!.saving_throws_checked[5]}} (ionChange)="this.onSelectChangedSTC($event,5)"></ion-checkbox>
+          <ion-input placeholder="?" value={{characters.selected_character!.saving_throws[5]}} (ionBlur)="onSelectChangedSTN($event,5)"></ion-input>
+        </ion-item>
+
+        <h3>Hit Die</h3>
+        <ion-item class="skill_element">
+        <p>{{characters.selected_character?.level}}x d6</p>
+        </ion-item>
+
+    </ion-list>
+</div>
+
+  </ng-container>
+
+  <div class="health_bars">
+    <ion-progress-bar value={{tempHP()}} class="tempHealthBar"></ion-progress-bar>
+    <ion-progress-bar value={{currentHP()}}></ion-progress-bar>
+  </div>
+
+</ion-content>

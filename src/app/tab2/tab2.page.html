@@ -1,0 +1,34 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <strong class="upper_title"> Dice </strong>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+<div class="dice_box">
+  <div *ngFor="let dice of selected_dice">
+    <app-dice-render dice_type="{{dice.name}}" [max_number]=4 (click)="removeDice(dice)"></app-dice-render>
+  </div>
+</div>
+
+<ion-icon (click)="reroll()" name="dice-outline" class="reroll_floating_btn"></ion-icon>
+
+<div class="addButtons">
+  <ion-button (click)="addW4()"  class="addBtn" id="w4"  [disabled]="!canAddDice()">W4</ion-button>
+  <ion-button (click)="addW6()"  class="addBtn" id="w6"  [disabled]="!canAddDice()">W6</ion-button>
+  <ion-button (click)="addW8()"  class="addBtn" id="w8"  [disabled]="!canAddDice()">W8</ion-button>
+  <ion-button (click)="addW10()" class="addBtn" id="w10" [disabled]="!canAddDice()">W10</ion-button>
+  <ion-button (click)="addW12()" class="addBtn" id="w12" [disabled]="!canAddDice()">W12</ion-button>
+  <ion-button (click)="addW20()" class="addBtn" id="w20" [disabled]="!canAddDice()">W20</ion-button>
+</div>
+
+</ion-content>
+
+
+
+

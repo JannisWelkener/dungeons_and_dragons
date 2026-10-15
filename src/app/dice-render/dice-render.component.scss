@@ -1,0 +1,24 @@
+.dice_renderer{
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+
+    align-items:center;
+    justify-content:center;
+
+    position: relative;
+}
+
+.dice_number{
+    font-size: 60px;
+    font-weight: 500;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    user-select: none;
+
+    color: white;
+}

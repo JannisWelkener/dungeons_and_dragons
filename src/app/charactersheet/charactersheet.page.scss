@@ -1,0 +1,145 @@
+.tempHealthBar {
+    --background: #00000000;
+    --buffer-background: #00000000;
+    --progress-background: var(--ion-color-warning);
+    position: absolute;
+    width: 100%;
+    display: block;
+  }
+
+
+
+  .health_bars{
+    width: 100%;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 0px;
+    position: fixed;
+    z-index: 100;
+  }
+
+  .inventory_box{
+    min-width: 100px;
+    min-height: 200px;
+    border: #ffff00;
+    border-style: solid;
+    border-width: 5px;
+  }
+
+  .item{
+    width: 50px;
+    height: 50px;
+  }
+
+  .attribute_visual{
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+    min-width: 120px;
+
+    //border-bottom-left-radius: 100px;
+    //border-bottom-right-radius: 100px;
+    //border-top-right-radius: 30px;
+    //border-top-left-radius: 30px;
+  }
+
+  .attribute_box{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .attribute_modifier{
+    border: var(--ion-color-light-contrast);
+    border-style: solid;
+    border-width: 2px;
+    width: 50px;
+    height: 50px;
+    border-radius: 200px;
+    text-align: center;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-bottom: 10px;
+  }
+
+  .attribute_mod_number{
+    margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: fit-content;
+  }
+
+  .attibute_number{
+    font-size: 35px;
+  }
+
+  .attr_num{
+    width: 100px;
+  }
+  .sub_attr_num{
+    width: 100px;
+    margin-left: -48px;
+    margin-top: 3px;
+  }
+
+.toolbar_end{
+  margin-right: 10px;
+}
+
+.flexbox{
+  width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.skill_element{
+  width: 100%;
+  background-color: #ffff00;
+  height: fit-content;
+}
+
+.segment_control{
+  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.alignment_item{
+  width: 100%;
+}
+
+.personality{
+  width: 100%;
+}
+.personality_item{
+  width: 100%;
+  height: fit-content;
+}
+
+.lvl_bar{
+  width: 100%;
+}
+
+.xp_bar{
+  width: 100%;
+  --progress-background: var(--ion-color-secondary);
+}
+
+.lvl_bar_in_table{
+  width: 90%;
+}

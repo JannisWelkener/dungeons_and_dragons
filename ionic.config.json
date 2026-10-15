@@ -1,0 +1,7 @@
+{
+  "name": "Dungeons and Dragons",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

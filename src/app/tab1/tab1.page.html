@@ -1,0 +1,102 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+     <strong class="upper_title"> Compendium </strong>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+
+  <ion-item>
+    <ion-select
+        interface="action-sheet"
+        placeholder="Kategorie..."
+        (ionChange)="this.onSelectChanged($event)"
+        >
+      <ion-select-option
+        *ngFor="let option of this.resources()" [value]="option.index"
+        >{{ option.title }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+
+
+  <app-ability-score-search
+    *ngIf="resource=='abilityScores'">
+  </app-ability-score-search>
+  <app-alignment-search
+    *ngIf="resource=='alignments'">
+  </app-alignment-search>
+  <app-background-search
+    *ngIf="resource=='backgrounds'">
+  </app-background-search>
+  <app-class-search
+    *ngIf="resource=='classes'">
+  </app-class-search>
+  <app-condition-search
+    *ngIf="resource=='conditions'">
+  </app-condition-search>
+  <app-damage-type-search
+    *ngIf="resource=='damageTypes'">
+  </app-damage-type-search>
+  <app-equipment-search
+    *ngIf="resource=='equipments'">
+  </app-equipment-search>
+  <app-equipment-category-search
+    *ngIf="resource=='equipmentCategories'">
+  </app-equipment-category-search>
+  <app-feat-search
+    *ngIf="resource=='feats'">
+  </app-feat-search>
+  <app-feature-search
+    *ngIf="resource=='features'">
+  </app-feature-search>
+  <app-language-search
+    *ngIf="resource=='languages'">
+  </app-language-search>
+  <app-level-search
+    *ngIf="resource=='levels'">
+  </app-level-search>
+  <app-magic-item-search
+    *ngIf="resource=='magicItems'">
+  </app-magic-item-search>
+  <app-magic-school-search
+    *ngIf="resource=='magicSchools'">
+  </app-magic-school-search>
+  <app-monster-search
+    *ngIf="resource=='monsters'">
+  </app-monster-search>
+  <app-proficiency-search
+    *ngIf="resource=='proficiencies'">
+  </app-proficiency-search>
+  <app-race-search
+    *ngIf="resource=='races'">
+  </app-race-search>
+  <app-rule-search
+    *ngIf="resource=='rules'">
+  </app-rule-search>
+  <app-rule-section-search
+    *ngIf="resource=='ruleSections'">
+  </app-rule-section-search>
+  <app-skill-search
+    *ngIf="resource=='skills'">
+  </app-skill-search>
+  <app-spell-search
+    *ngIf="resource=='spells'">
+  </app-spell-search>
+  <app-subclass-search
+    *ngIf="resource=='subclasses'">
+  </app-subclass-search>
+  <app-subrace-search
+    *ngIf="resource=='subraces'">
+  </app-subrace-search>
+  <app-trait-search
+    *ngIf="resource=='traits'">
+  </app-trait-search>
+  <app-weapon-property-search
+    *ngIf="resource=='weaponProperties'">
+  </app-weapon-property-search>
+
+</ion-content>

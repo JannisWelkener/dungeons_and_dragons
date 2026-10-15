@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="onCloseClick()">Close</ion-button>
+    </ion-buttons>
+    <ion-title>{{ (resource)? titles[resource] : "Error: Resource not found - search-modal.component" }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content> <!--class="ion-padding"-->
+  <app-ability-score-search      *ngIf="resource=='abilityScores'"       [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-ability-score-search>
+  <app-alignment-search          *ngIf="resource=='alignments'"          [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-alignment-search>
+  <app-background-search         *ngIf="resource=='backgrounds'"         [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-background-search>
+  <app-class-search              *ngIf="resource=='classes'"             [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-class-search>
+  <app-condition-search          *ngIf="resource=='conditions'"          [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-condition-search>
+  <app-damage-type-search        *ngIf="resource=='damageTypes'"         [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-damage-type-search>
+  <app-equipment-search          *ngIf="resource=='equipments'"          [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-equipment-search>
+  <app-equipment-category-search *ngIf="resource=='equipmentCategories'" [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-equipment-category-search>
+  <app-feat-search               *ngIf="resource=='feats'"               [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-feat-search>
+  <app-feature-search            *ngIf="resource=='features'"            [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-feature-search>
+  <app-language-search           *ngIf="resource=='languages'"           [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-language-search>
+  <app-level-search              *ngIf="resource=='levels'"              [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-level-search>
+  <app-magic-item-search         *ngIf="resource=='magicItems'"          [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-magic-item-search>
+  <app-magic-school-search       *ngIf="resource=='magicSchools'"        [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-magic-school-search>
+  <app-monster-search            *ngIf="resource=='monsters'"            [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-monster-search>
+  <app-proficiency-search        *ngIf="resource=='proficiencies'"       [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-proficiency-search>
+  <app-race-search               *ngIf="resource=='races'"               [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-race-search>
+  <app-rule-search               *ngIf="resource=='rules'"               [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-rule-search>
+  <app-rule-section-search       *ngIf="resource=='ruleSections'"        [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-rule-section-search>
+  <app-skill-search              *ngIf="resource=='skills'"              [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-skill-search>
+  <app-spell-search              *ngIf="resource=='spells'"              [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-spell-search>
+  <app-subclass-search           *ngIf="resource=='subclasses'"          [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-subclass-search>
+  <app-subrace-search            *ngIf="resource=='subraces'"            [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-subrace-search>
+  <app-trait-search              *ngIf="resource=='traits'"              [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-trait-search>
+  <app-weapon-property-search    *ngIf="resource=='weaponProperties'"    [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-weapon-property-search>
+</ion-content>

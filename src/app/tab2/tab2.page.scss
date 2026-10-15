@@ -1,0 +1,91 @@
+.center_button{
+    text-align: center;
+    margin: 1em;
+}
+
+ion-content{
+    text-align: center;
+    --background: var(--ion-background-color) url(/assets/icon/dungeons-and-dragons_background_2.png) no-repeat center;
+
+}
+
+#reset_all_modalbtn{
+    margin: 1em;
+}
+
+.max_size{
+    width: auto;
+    height: 100px;
+}
+
+.dice_renderer{
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+
+    align-items:center;
+    justify-content:center;
+
+    position: relative;
+}
+
+.dice_number{
+    font-size: 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.dice_box{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 44px;
+}
+
+.reroll_floating_btn{
+    position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+    padding: 10px;
+	background-color:var(--ion-color-light);
+	color:#FFF;
+	border-radius:80px;
+	text-align:center;
+}
+
+.addButtons{
+    left:0px;
+    top: 60px;
+    position:fixed;
+    width: 100%;
+}
+
+.addBtn{
+    width: 15%;
+}
+
+#w4{
+    --background: #005522;
+}
+#w6{
+    --background: #01a7a7;
+}
+#w8{
+    --background: #9403fc;
+}
+#w10{
+    --background: #fca103;
+}
+#w12{
+    --background: #fc2803;
+}
+#w20{
+    --background: #0000ff;
+}

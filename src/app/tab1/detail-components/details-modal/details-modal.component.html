@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="onCloseClick()">Close</ion-button>
+    </ion-buttons>
+    <ion-title>{{ (resource)? titles[resource] : "Error: Resource not found - details-modal.component" }}</ion-title>
+    <ion-buttons slot="end" *ngIf="shouldShowConfim()">
+      <ion-button (click)="onSubmitClick()" [strong]="true">Confirm</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content> <!--class="ion-padding"-->
+  <app-ability-score-details      *ngIf="resource=='abilityScores'"       [index]="index" [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-ability-score-details>
+  <app-alignment-details          *ngIf="resource=='alignments'"          [index]="index" [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-alignment-details>
+  <app-background-details         *ngIf="resource=='backgrounds'"         [index]="index" [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-background-details>
+  <app-class-details              *ngIf="resource=='classes'"             [index]="index" [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-class-details>
+  <app-condition-details          *ngIf="resource=='conditions'"          [index]="index" [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-condition-details>
+  <app-damage-type-details        *ngIf="resource=='damageTypes'"         [index]="index" [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-damage-type-details>
+  <app-equipment-details          *ngIf="resource=='equipments'"          [index]="index" [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-equipment-details>
+  <app-equipment-category-details *ngIf="resource=='equipmentCategories'" [index]="index" [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-equipment-category-details>
+  <app-feat-details               *ngIf="resource=='feats'"               [index]="index" [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-feat-details>
+  <app-feature-details            *ngIf="resource=='features'"            [index]="index" [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-feature-details>
+  <app-language-details           *ngIf="resource=='languages'"           [index]="index" [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-language-details>
+  <app-level-details              *ngIf="resource=='levels'"              [index]="index" [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-level-details>
+  <app-magic-item-details         *ngIf="resource=='magicItems'"          [index]="index" [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-magic-item-details>
+  <app-magic-school-details       *ngIf="resource=='magicSchools'"        [index]="index" [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-magic-school-details>
+  <app-monster-details            *ngIf="resource=='monsters'"            [index]="index" [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-monster-details>
+  <app-proficiency-details        *ngIf="resource=='proficiencies'"       [index]="index" [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-proficiency-details>
+  <app-race-details               *ngIf="resource=='races'"               [index]="index" [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-race-details>
+  <app-rule-details               *ngIf="resource=='rules'"               [index]="index" [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-rule-details>
+  <app-rule-section-details       *ngIf="resource=='ruleSections'"        [index]="index" [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-rule-section-details>
+  <app-skill-details              *ngIf="resource=='skills'"              [index]="index" [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-skill-details>
+  <app-spell-details              *ngIf="resource=='spells'"              [index]="index" [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-spell-details>
+  <app-subclass-details           *ngIf="resource=='subclasses'"          [index]="index" [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-subclass-details>
+  <app-subrace-details            *ngIf="resource=='subraces'"            [index]="index" [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-subrace-details>
+  <app-trait-details              *ngIf="resource=='traits'"              [index]="index" [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-trait-details>
+  <app-weapon-property-details    *ngIf="resource=='weaponProperties'"    [index]="index" [fnCanConfirm]="fnCanConfirm" (confirm)="onSubmitEvent($event)"></app-weapon-property-details>
+</ion-content>
